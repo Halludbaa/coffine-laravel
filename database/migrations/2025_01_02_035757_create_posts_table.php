@@ -28,12 +28,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Schema::create('marks', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->foreignId('marked_post')->constrained()
-        //     $table->foreignId('user')->references('users_id')->on('users');
-        //     $table->timestamps();
-        // });
+        Schema::create('marks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('marked_post')->constrained(table: 'posts', column: 'slug')->onDelete('cascade');
+            $table->foreignId('user')->constrained(table: 'users', column: 'id')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
 

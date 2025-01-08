@@ -1,16 +1,21 @@
 import { useState } from "react";
 import NavBar from "../../Components/NavBar";
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import PostList from "@/Components/PostList";
 
 export default function Timeline({
     posts,
     pageName,
+    user_id,
 }: {
     posts: any[];
     pageName: string;
+    user_id?: number;
 }) {
-    // console.info(posts);
+    const user = usePage().props.auth.user;
+
+    console.info(user_id);
+    console.info(user.name);
     return (
         <>
             <Head title={pageName} />

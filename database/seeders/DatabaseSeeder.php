@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Likes;
+use App\Models\Marks;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $users = User::factory(10)->create();
         $posts = Post::factory(10)->recycle($users)->create();
         Likes::factory(10)->recycle($posts)->recycle($users)->create();
-
+        Marks::factory(10)->recycle($users)->recycle($posts)->create();
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

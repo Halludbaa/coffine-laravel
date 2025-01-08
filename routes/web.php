@@ -6,7 +6,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', [PostController::class, 'timelinePage']);
+Route::get('/', [PostController::class, 'timelinePage'])
+    ->middleware(['auth'])->name('Timeline');
 
 Route::get(
     '/welcome',
